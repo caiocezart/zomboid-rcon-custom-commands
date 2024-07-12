@@ -1,11 +1,29 @@
-RCONCommandsUtils = {};
+local RCONCommandsUtils = {};
+RCONCommandsUtils.moduleName = "";
+RCONCommandsUtils.LOG_LEVELS = {
+    ERROR = 1,
+    INFO = 2,
+    DEBUG = 3
+};
+RCONCommandsUtils.logLevel = RCONCommandsUtils.LOG_LEVELS.INFO;
+RCONCommandsUtils.log = {};
 
-RCONCommandsUtils.printDebug = function(_module, _function, _string)
-    if _module ~= nil and _string ~= nil then
-        print("[" .. tostring(_module) .. "][" .. tostring(_function) .. "] " .. tostring(_string));
-    elseif _module == nil and _string ~= nil then
-        print("...NO MODULE RECEIVED..." .. tostring(_string));
-    else
-        print("...ERROR IN DEBUG...");
+RCONCommandsUtils.log.info = function(message)
+    if RCONCommandsUtils.logLevel >= RCONCommandsUtils.LOG_LEVELS.INFO then
+        print("[INFO][" .. RCONCommandsUtils.moduleName .. "] " .. message);
     end
 end
+
+RCONCommandsUtils.log.debug = function(message)
+    if RCONCommandsUtils.logLevel >= RCONCommandsUtils.LOG_LEVELS.DEBUG then
+        print("[DEBUG][" .. RCONCommandsUtils.moduleName .. "] " .. message);
+    end
+end
+
+RCONCommandsUtils.log.error = function(message)
+    if RCONCommandsUtils.logLevel >= RCONCommandsUtils.LOG_LEVELS.ERROR then
+        print("[ERROR][" .. RCONCommandsUtils.moduleName .. "] " .. message);
+    end
+end
+
+return RCONCommandsUtils
