@@ -37,7 +37,7 @@ Use your preferred RCON client to send commands to the server.
   - i.e `servermsg "/spawn_zombies 1 100 200 0 50"`
 
 - `servermsg "/spawn_item <command_id> <item_name> <pos_x> <pos_y> <pos_z>"`
-  - i.e `servermsg "/spawn_item Base.Axe 1 100 200 0"`
+  - i.e `servermsg "/spawn_item 1 Base.Axe 100 200 0"`
 
 # Adding new custom commands
 
